@@ -41,6 +41,7 @@ portfolio/
 ├── index.html
 ├── images/
 │   ├── profile_linkedin.jpg
+│   └── preview.png
 ├── documents/
 │   ├── resume.pdf
 └── README.md
