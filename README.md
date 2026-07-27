@@ -4,7 +4,7 @@ A modern, interactive, and responsive personal portfolio website showcasing my s
 
 ## 🌐 Live Demo
 
-https://your-portfolio-link.com
+ https://yantano.github.io/carlo-tano-portfolio/
 
 ## 📸 Preview
 
@@ -40,11 +40,9 @@ https://your-portfolio-link.com
 portfolio/
 ├── index.html
 ├── images/
-│   ├── profile.png
-│   └── preview.png
-├── assets/
-│   ├── css/
-│   └── js/
+│   ├── profile_linkedin.jpg
+├── documents/
+│   ├── resume.pdf
 └── README.md
 ```
 
@@ -68,9 +66,9 @@ I'm a Software QA Engineer and Computer Engineering graduate with experience in 
 
 ## 📫 Contact
 
-- Email: your.email@example.com
-- LinkedIn: https://linkedin.com/in/yourprofile
-- GitHub: https://github.com/yourusername
+- Email: tano.carlom@gmail.com
+- LinkedIn: https://linkedin.com/in/carlo-tano-7375bb1bb/
+- GitHub: https://github.com/YanTano
 
 ---
 
