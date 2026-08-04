@@ -20,11 +20,11 @@ const skills = [
 const projects = [
   { title:'Cat Run', desc:'A endless runner game where players dodge obstacles, collect fish, and compete for the highest score.', tags: ['HTML', 'CSS', 'JavaScript', 'Canvas API', 'Local Storage'], live: 'https://yantano.github.io/cat-run/',
     github: 'https://github.com/YanTano/cat-run', image: 'assets/images/projects/cat-run.jpg'},
-  { title:'Chickein', desc:'A premium Chicken Inasal restaurant website showcasing cinematic visuals, immersive animations, smooth GSAP interactions, and a modern user experience designed to drive customer engagement.', tags: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'ScrollTrigger'], live: 'https://yantano.github.io/chickein/',
+  { title:'Chickein', desc:'A premium Chicken Inasal restaurant website showcasing cinematic visuals, immersive animations, smooth GSAP interactions, and a modern user experience designed to drive customer engagement.', tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Gemini AI', 'OCR', 'AI Mock Interview'], live: 'https://yantano.github.io/chickein/',
     github: 'https://github.com/YanTano/chickein', image: 'assets/images/projects/chickein.jpg'},
+  { title:'Neural-Vision', desc:'Neural Vision is an AI-powered platform featuring image analysis, visual reasoning, OCR, and an adaptive AI Mock Interview coach that provides realistic interview practice, instant feedback, and personalized coaching to help users build confidence and land their next opportunity.', tags:['Python','Playwright','CI/CD'], live: 'https://yantano.github.io/neural-vision/',
+    github: 'https://github.com/YanTano/neural-vision', image: 'assets/images/projects/neural-vision.jpg'},
     /*
-  { title:'QA Automation Framework', desc:'A modular Playwright + Python framework for scalable regression and API test suites.', tags:['Python','Playwright','CI/CD'], live: 'https://yantano.github.io/qa-automation-framework/',
-    github: 'https://github.com/YanTano/qa-automation-framework', image: 'assets/images/projects/qa-automation-framework.jpg'},
   { title:'E-Commerce Testing', desc:'Full regression and exploratory test cycles across checkout, payments, and inventory flows.', tags:['Manual QA','Jira','API'], live: 'https://yantano.github.io/e-commerce-testing/',
     github: 'https://github.com/YanTano/e-commerce-testing', image: 'assets/images/projects/e-commerce-testing.jpg'},
   { title:'Zombie Survival Game', desc:'A browser-based survival game built for fun, then rigorously stress- and bug-tested.', tags:['JavaScript','Canvas','QA'], live: 'https://yantano.github.io/zombie-survival-game/',
