@@ -1,0 +1,9 @@
+@media (max-width: 768px){
+  .cursor-dot, .cursor-glow{ display:none; }
+  body{ cursor:auto; }
+}
+
+@media (max-width: 480px){
+  .ai-chat-window{ right:12px; bottom:160px; }
+  .ai-toggle-btn{ right:16px; bottom:88px; }
+}
