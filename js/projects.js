@@ -18,6 +18,8 @@ const skills = [
 ];
 
 const projects = [
+  { title:'Mathicsolve AI', desc:'AI-powered math scanner and solver that uses your camera to recognize mathematical problems and provide solutions with step-by-step explanations.', tags: ['AI', 'Math Scanner', 'OCR', 'Gemini AI', 'Computer Vision', 'React', 'TypeScript', 'Vite'], live: 'https://yantano.github.io/mathicsolve-ai/',
+    github: 'https://github.com/YanTano/mathicsolve-ai', image: 'assets/images/projects/mathicsolve-ai.jpg'},
   { title:'Cat Run', desc:'A endless runner game where players dodge obstacles, collect fish, and compete for the highest score.', tags: ['HTML', 'CSS', 'JavaScript', 'Canvas API', 'Local Storage'], live: 'https://yantano.github.io/cat-run/',
     github: 'https://github.com/YanTano/cat-run', image: 'assets/images/projects/cat-run.jpg'},
   { title:'Chickein', desc:'A premium Chicken Inasal restaurant website showcasing cinematic visuals, immersive animations, smooth GSAP interactions, and a modern user experience designed to drive customer engagement.', tags: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Gemini AI', 'OCR', 'AI Mock Interview'], live: 'https://yantano.github.io/chickein/',
