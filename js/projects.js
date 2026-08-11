@@ -25,7 +25,7 @@ const projects = [
     image: 'assets/images/projects/mathicsolve-ai.jpg'},
   
   { title:'Cat Run', desc:'A endless runner game where players dodge obstacles, collect fish, and compete for the highest score.', 
-    tags: ['React','TypeScript','Vite','Three.js','WebGL','Tailwind%20CSS'], 
+    tags: ['React','TypeScript','Vite','Three.js','WebGL','Tailwind CSS'], 
     live: 'https://yantano.github.io/cat-run/',
     github: 'https://github.com/YanTano/cat-run', 
     image: 'assets/images/projects/cat-run.jpg'},
