@@ -123,7 +123,6 @@ projects.forEach((p, i) => {
       <img src="${p.image}" alt="${p.title} screenshot" loading="lazy"
            class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
            onerror="this.remove();" />
-      <i class="fa-solid fa-layer-group text-5xl text-white/30 group-hover:scale-110 transition-transform duration-500 relative z-0"></i>
     </div>
     <div class="p-6">
       <h3 class="font-display font-semibold text-lg mb-2">${p.title}</h3>
