@@ -556,16 +556,22 @@ form.addEventListener("submit", function(e){
   });
 
   /* ============ Theme toggle (scoped to widget only) ============ */
+  const profilePhoto = document.getElementById('profilePhoto');
+  const setProfilePhoto = (isLight) => {
+    if(profilePhoto) profilePhoto.src = isLight ? 'assets/images/profile/carlo-light.jpeg' : 'assets/images/profile/carlo-dark.jpeg';
+  };
   themeBtn.addEventListener('click', () => {
     const isLight = widget.getAttribute('data-ai-theme') === 'light';
     widget.setAttribute('data-ai-theme', isLight ? 'dark' : 'light');
     themeBtn.innerHTML = isLight ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>';
     localStorage.setItem('carloAiTheme', isLight ? 'dark' : 'light');
+    setProfilePhoto(!isLight);
   });
   const savedTheme = localStorage.getItem('carloAiTheme');
   if(savedTheme === 'light'){
     widget.setAttribute('data-ai-theme','light');
     themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    setProfilePhoto(true);
   }
 
   /* ============ Voice output toggle ============ */

@@ -18,6 +18,13 @@ const skills = [
 ];
 
 const projects = [
+  { title: 'Biblia Sacra — CEBU',
+    desc: 'Interactive Cebuano Bible website featuring Scripture reading, devotionals, daily verses, and an immersive digital book experience.',
+    tags: ['HTML5', 'CSS3', 'JavaScript', 'JSON', 'Responsive Design', 'Interactive UI'],
+    live: 'https://yantano.github.io/biblia-sacra/',
+    github: 'https://github.com/YanTano/biblia-sacra',
+    image: 'assets/images/projects/biblia-sacra.jpg'},
+
   { title:'Mathicsolve AI', desc:'AI-powered math scanner and solver that uses your camera to recognize mathematical problems and provide solutions with step-by-step explanations.', 
     tags: ['AI', 'Math Scanner', 'OCR', 'Gemini AI', 'Computer Vision', 'React', 'TypeScript', 'Vite'], 
     live: 'https://yantano.github.io/mathicsolve-ai/',
@@ -41,12 +48,6 @@ const projects = [
     live: 'https://yantano.github.io/neural-vision/',
     github: 'https://github.com/YanTano/neural-vision', 
     image: 'assets/images/projects/neural-vision.jpg'},
-    /*
-  { title:'E-Commerce Testing', desc:'Full regression and exploratory test cycles across checkout, payments, and inventory flows.', tags:['Manual QA','Jira','API'], live: 'https://yantano.github.io/e-commerce-testing/',
-    github: 'https://github.com/YanTano/e-commerce-testing', image: 'assets/images/projects/e-commerce-testing.jpg'},
-  { title:'Zombie Survival Game', desc:'A browser-based survival game built for fun, then rigorously stress- and bug-tested.', tags:['JavaScript','Canvas','QA'], live: 'https://yantano.github.io/zombie-survival-game/',
-    github: 'https://github.com/YanTano/zombie-survival-game', image: 'assets/images/projects/zombie-survival-game.jpg'},
-    */
 ];
 
 const experience = [

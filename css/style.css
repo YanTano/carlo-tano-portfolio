@@ -40,12 +40,7 @@ h1,h2,h3,.font-display{ font-family: 'Space Grotesk', sans-serif; }
 }
 
 .gradient-text{
-  background: linear-gradient(90deg, #3b82f6, #22d3ee, #a855f7, #3b82f6);
-  background-size: 300% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: gradientMove 6s linear infinite;
+  color: var(--cyan);
 }
 
 /* Navbar */
@@ -334,3 +329,289 @@ input:-webkit-autofill{
 .ai-send-btn{ background:linear-gradient(135deg,var(--ai-blue),var(--ai-purple)); color:#fff; }
 .ai-send-btn:disabled{ opacity:.4; }
 .ai-mic-btn{ background:rgba(255,255,255,.06); color:var(--ai-muted); border:1px solid var(--ai-border); }
+
+/* ============ Site light/dark toggle switch (Uiverse.io by RiccardoRapelli) ============ */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+#input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  overflow: hidden;
+  background: #2196f3;
+  border-radius: 34px;
+  transition: .4s;
+}
+
+.sun-moon {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  left: 4px;
+  bottom: 4px;
+  border-radius: 50%;
+  background: yellow;
+  transition: .4s;
+  z-index: 2;
+}
+
+#input:checked + .slider {
+  background: #000;
+}
+
+#input:checked + .slider .sun-moon {
+  transform: translateX(26px);
+  background: #fff;
+  animation: rotate .6s ease-in-out;
+}
+
+/* Moon dots */
+.dots,
+.dots::before,
+.dots::after {
+  position: absolute;
+  border-radius: 50%;
+  background: gray;
+  opacity: 0;
+  transition: .4s;
+}
+
+.dots {
+  width: 6px;
+  height: 6px;
+  left: 10px;
+  top: 3px;
+}
+
+.dots::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  left: -8px;
+  top: 7px;
+}
+
+.dots::after {
+  content: "";
+  width: 3px;
+  height: 3px;
+  left: 6px;
+  top: 15px;
+}
+
+#input:checked + .slider .dots,
+#input:checked + .slider .dots::before,
+#input:checked + .slider .dots::after {
+  opacity: 1;
+}
+
+/* Light rays */
+.rays,
+.rays::before,
+.rays::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  opacity: .1;
+}
+
+.rays {
+  width: 43px;
+  height: 43px;
+  left: -8px;
+  top: -8px;
+}
+
+.rays::before {
+  width: 55px;
+  height: 55px;
+  left: -20px;
+  top: -20px;
+}
+
+.rays::after {
+  width: 60px;
+  height: 60px;
+  left: -10px;
+  top: -10px;
+}
+
+/* Clouds */
+.clouds {
+  position: absolute;
+  width: 70px;
+  height: 25px;
+  border-radius: 50%;
+  animation: cloud 6s infinite;
+}
+
+.clouds::before,
+.clouds::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.clouds::before {
+  width: 40px;
+  height: 30px;
+  left: 10px;
+  top: -10px;
+}
+
+.clouds::after {
+  width: 25px;
+  height: 25px;
+  left: 35px;
+  top: -5px;
+}
+
+.clouds.dark {
+  left: 8px;
+  top: 20px;
+  background: #ccc;
+}
+
+.clouds.dark::before,
+.clouds.dark::after {
+  background: #ccc;
+}
+
+.clouds.light {
+  left: 25px;
+  top: 18px;
+  background: #eee;
+  animation-delay: 1s;
+}
+
+.clouds.light::before,
+.clouds.light::after {
+  background: #eee;
+}
+
+/* Stars */
+.stars {
+  position: absolute;
+  inset: 0;
+  transform: translateY(-32px);
+  opacity: 0;
+  transition: .4s;
+}
+
+#input:checked + .slider .stars {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.star,
+.stars i {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: white;
+  clip-path: polygon(
+    50% 0,
+    60% 40%,
+    100% 50%,
+    60% 60%,
+    50% 100%,
+    40% 60%,
+    0 50%,
+    40% 40%
+  );
+  animation: twinkle 2s infinite;
+}
+
+.stars i:nth-child(1) {
+  width: 20px;
+  height: 20px;
+  top: 2px;
+  left: 3px;
+  animation-delay: .3s;
+}
+
+.stars i:nth-child(2) {
+  width: 6px;
+  height: 6px;
+  top: 16px;
+  left: 3px;
+}
+
+.stars i:nth-child(3) {
+  width: 12px;
+  height: 12px;
+  top: 20px;
+  left: 10px;
+  animation-delay: .6s;
+}
+
+.stars i:nth-child(4) {
+  width: 18px;
+  height: 18px;
+  top: 0;
+  left: 18px;
+  animation-delay: 1.3s;
+}
+
+/* Animations */
+@keyframes cloud {
+  0%, 100% { transform: translateX(0); }
+  40% { transform: translateX(4px); }
+  80% { transform: translateX(-4px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { transform: scale(1); }
+  40% { transform: scale(1.2); }
+  80% { transform: scale(.8); }
+}
+
+@keyframes rotate {
+  from { transform: translateX(26px) rotate(0); }
+  to { transform: translateX(26px) rotate(360deg); }
+}
+
+/* Site light mode: background only (per request, rest of design untouched) */
+body.site-light-mode{
+  background: #f4f6fb;
+}
+
+/* Site light mode: text contrast fixes so copy stays readable over the sky background */
+body.site-light-mode{
+  color: #1c2333;
+}
+body.site-light-mode .text-gray-200{ color: #1c2333; }
+body.site-light-mode .text-gray-300{ color: #2c3446; }
+body.site-light-mode .text-gray-400{ color: #4a5265; }
+body.site-light-mode .text-gray-500{ color: #5b6478; }
+body.site-light-mode .nav-link.active,
+body.site-light-mode #mobileBtn{ color: #1c2333; }
+
+/* Light mode accent colors: swap neon cyan for a deeper, calmer tone that suits the sky */
+body.site-light-mode .text-cyan-400{ color: #0f4c81; }
+body.site-light-mode .gradient-text{ color: #b45309; }
+
+/* Light mode glass panels: frost them up a bit so text stays legible over the animated sky */
+body.site-light-mode .glass{
+  background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(15,23,42,0.08);
+}
+
+/* Light mode: hide the two hero blobs, keep them for dark mode */
+body.site-light-mode .blob-hero-1,
+body.site-light-mode .blob-hero-2{
+  display: none;
+}
+
