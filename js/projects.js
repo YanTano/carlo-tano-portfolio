@@ -1,20 +1,28 @@
 /* ============ DATA ============ */
 const skills = [
-  { name:'HTML', icon:'fa-brands fa-html5', level:90 },
-  { name:'CSS', icon:'fa-brands fa-css3-alt', level:88 },
-  { name:'JavaScript', icon:'fa-brands fa-js', level:80 },
-  { name:'Python', icon:'fa-brands fa-python', level:80 },
-  { name:'SQL', icon:'fa-solid fa-database', level:82 },
-  { name:'Git', icon:'fa-brands fa-git-alt', level:85 },
-  { name:'GitHub', icon:'fa-brands fa-github', level:88 },
-  { name:'Jira', icon:'fa-brands fa-jira', level:90 },
-  { name:'Playwright', icon:'fa-solid fa-robot', level:80 },
-  { name:'Manual Testing', icon:'fa-solid fa-magnifying-glass', level:96 },
-  { name:'Automation Testing', icon:'fa-solid fa-gears', level:80 },
-  { name:'API Testing', icon:'fa-solid fa-plug', level:80 },
-  { name:'Regression Testing', icon:'fa-solid fa-rotate', level:92 },
-  { name:'Exploratory Testing', icon:'fa-solid fa-compass', level:93 },
-  { name:'Responsive Design', icon:'fa-solid fa-mobile-screen', level:80 },
+  // Languages & Web
+  { name:'HTML', icon:'fa-brands fa-html5', level:90, category:'Languages & Web' },
+  { name:'CSS', icon:'fa-brands fa-css3-alt', level:88, category:'Languages & Web' },
+  { name:'JavaScript', icon:'fa-brands fa-js', level:80, category:'Languages & Web' },
+  { name:'Python', icon:'fa-brands fa-python', level:80, category:'Languages & Web' },
+  { name:'SQL', icon:'fa-solid fa-database', level:82, category:'Languages & Web' },
+  { name:'Responsive Design', icon:'fa-solid fa-mobile-screen', level:80, category:'Languages & Web' },
+
+  // Tools & Workflow
+  { name:'Git', icon:'fa-brands fa-git-alt', level:85, category:'Tools & Workflow' },
+  { name:'GitHub', icon:'fa-brands fa-github', level:88, category:'Tools & Workflow' },
+  { name:'Jira', icon:'fa-brands fa-jira', level:90, category:'Tools & Workflow' },
+
+  // QA & Testing
+  { name:'Manual Testing', icon:'fa-solid fa-magnifying-glass', level:96, category:'QA & Testing' },
+  { name:'API Testing', icon:'fa-solid fa-plug', level:80, category:'QA & Testing' },
+  { name:'Regression Testing', icon:'fa-solid fa-rotate', level:92, category:'QA & Testing' },
+  { name:'Exploratory Testing', icon:'fa-solid fa-compass', level:93, category:'QA & Testing' },
+
+  // Automation
+  { name:'Automation Testing', icon:'fa-solid fa-gears', level:80, category:'Automation' },
+  { name:'Playwright', icon:'fa-solid fa-robot', level:80, category:'Automation' },
+  { name:'Maestro', icon:'fa-solid fa-mobile-screen-button', level:75, category:'Automation' },
 ];
 
 const projects = [
@@ -92,30 +100,51 @@ const testimonials = [
    */
 ];
 
-/* ============ SKILLS GRID RENDER ============ */
+/* ============ SKILLS GRID RENDER (grouped by category) ============ */
 const skillsGrid = document.getElementById('skillsGrid');
-skills.forEach((s, i) => {
-  const card = document.createElement('div');
-  card.className = 'tilt-card glass glow-border rounded-2xl p-6 group';
-  card.setAttribute('data-aos', 'fade-up');
-  card.setAttribute('data-aos-delay', String((i % 4) * 100));
-  card.innerHTML = `
-    <i class="${s.icon} text-3xl text-cyan-400 mb-4 group-hover:text-purple-400 transition-colors"></i>
-    <h3 class="font-semibold mb-3">${s.name}</h3>
-    <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
-      <div class="skill-bar-fill h-full rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-purple-500" data-level="${s.level}"></div>
-    </div>
-    <span class="text-xs text-gray-500 mt-2 inline-block">${s.level}%</span>
-  `;
-  skillsGrid.appendChild(card);
+const skillCategories = [...new Set(skills.map(s => s.category))];
+let skillIndex = 0;
 
-  card.addEventListener('mousemove', (e) => {
-    const r = card.getBoundingClientRect();
-    const px = (e.clientX - r.left) / r.width - 0.5;
-    const py = (e.clientY - r.top) / r.height - 0.5;
-    card.style.transform = `perspective(600px) rotateX(${-py*10}deg) rotateY(${px*10}deg) translateY(-4px)`;
+skillCategories.forEach(category => {
+  const categoryWrap = document.createElement('div');
+  categoryWrap.className = 'col-span-full';
+  categoryWrap.setAttribute('data-aos', 'fade-up');
+
+  const heading = document.createElement('p');
+  heading.className = 'section-eyebrow text-cyan-400 text-xs font-semibold uppercase mb-4 mt-2 first:mt-0';
+  heading.textContent = category;
+  categoryWrap.appendChild(heading);
+
+  const categoryGrid = document.createElement('div');
+  categoryGrid.className = 'grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-10';
+  categoryWrap.appendChild(categoryGrid);
+
+  skillsGrid.appendChild(categoryWrap);
+
+  skills.filter(s => s.category === category).forEach((s) => {
+    const card = document.createElement('div');
+    card.className = 'tilt-card glass glow-border rounded-2xl p-6 group';
+    card.setAttribute('data-aos', 'fade-up');
+    card.setAttribute('data-aos-delay', String((skillIndex % 4) * 100));
+    skillIndex++;
+    card.innerHTML = `
+      <i class="${s.icon} text-3xl text-cyan-400 mb-4 group-hover:text-purple-400 transition-colors"></i>
+      <h3 class="font-semibold mb-3">${s.name}</h3>
+      <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+        <div class="skill-bar-fill h-full rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-purple-500" data-level="${s.level}"></div>
+      </div>
+      <span class="text-xs text-gray-500 mt-2 inline-block">${s.level}%</span>
+    `;
+    categoryGrid.appendChild(card);
+
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = `perspective(600px) rotateX(${-py*10}deg) rotateY(${px*10}deg) translateY(-4px)`;
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
   });
-  card.addEventListener('mouseleave', () => { card.style.transform = ''; });
 });
 
 /* ============ PROJECTS RENDER ============ */
