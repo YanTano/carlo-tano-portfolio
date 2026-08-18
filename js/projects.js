@@ -18,13 +18,6 @@ const skills = [
 ];
 
 const projects = [
-  { title: 'Biblia Sacra — CEBU',
-    desc: 'Interactive Cebuano Bible website featuring Scripture reading, devotionals, daily verses, and an immersive digital book experience.',
-    tags: ['HTML5', 'CSS3', 'JavaScript', 'JSON', 'Responsive Design', 'Interactive UI'],
-    live: 'https://yantano.github.io/biblia-sacra/',
-    github: 'https://github.com/YanTano/biblia-sacra',
-    image: 'assets/images/projects/biblia-sacra.jpg'},
-
   { title:'Mathicsolve AI', desc:'AI-powered math scanner and solver that uses your camera to recognize mathematical problems and provide solutions with step-by-step explanations.', 
     tags: ['AI', 'Math Scanner', 'OCR', 'Gemini AI', 'Computer Vision', 'React', 'TypeScript', 'Vite'], 
     live: 'https://yantano.github.io/mathicsolve-ai/',
@@ -48,6 +41,19 @@ const projects = [
     live: 'https://yantano.github.io/neural-vision/',
     github: 'https://github.com/YanTano/neural-vision', 
     image: 'assets/images/projects/neural-vision.jpg'},
+
+  { title:'QA Automation Framework', desc:'A Playwright + TypeScript end-to-end test suite built for this very portfolio: Page Object Model architecture, custom fixtures, cross-browser and mobile-viewport coverage, an axe-core accessibility scan, and a GitHub Actions pipeline that runs on every push plus a nightly check against the live site.',
+    tags: ['Playwright','TypeScript','Page Object Model','axe-core','GitHub Actions','CI/CD'],
+    live: 'https://github.com/YanTano/carlo-tano-portfolio-tests/actions/workflows/playwright.yml',
+    liveLabel: 'CI Runs', liveIcon: 'fa-solid fa-vial-circle-check',
+    github: 'https://github.com/YanTano/carlo-tano-portfolio-tests',
+    image: 'assets/images/projects/qa-automation-framework.jpg'},
+    /*
+  { title:'E-Commerce Testing', desc:'Full regression and exploratory test cycles across checkout, payments, and inventory flows.', tags:['Manual QA','Jira','API'], live: 'https://yantano.github.io/e-commerce-testing/',
+    github: 'https://github.com/YanTano/e-commerce-testing', image: 'assets/images/projects/e-commerce-testing.jpg'},
+  { title:'Zombie Survival Game', desc:'A browser-based survival game built for fun, then rigorously stress- and bug-tested.', tags:['JavaScript','Canvas','QA'], live: 'https://yantano.github.io/zombie-survival-game/',
+    github: 'https://github.com/YanTano/zombie-survival-game', image: 'assets/images/projects/zombie-survival-game.jpg'},
+    */
 ];
 
 const experience = [
@@ -132,7 +138,7 @@ projects.forEach((p, i) => {
         ${p.tags.map(t => `<span class="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-cyan-300">${t}</span>`).join('')}
       </div>
       <div class="flex gap-4 text-sm font-medium">
-        <a href="${p.live}" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-cyan-400 hover:text-cyan-300"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+        <a href="${p.live}" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-cyan-400 hover:text-cyan-300"><i class="${p.liveIcon || 'fa-solid fa-arrow-up-right-from-square'}"></i> ${p.liveLabel || 'Live Demo'}</a>
         <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-300 hover:text-white"><i class="fa-brands fa-github"></i> GitHub</a>
       </div>
     </div>
