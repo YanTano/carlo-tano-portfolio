@@ -63,6 +63,7 @@ const projects = [
     liveLabel: 'CI Runs', liveIcon: 'fa-solid fa-vial-circle-check',
     github: 'https://github.com/YanTano/carlo-tano-portfolio-tests',
     image: 'assets/images/projects/qa-automation-framework.jpg'},
+];
 
 const experience = [
   { date:'2023 — 2026', role:'Software QA Engineer', company:'Forty Degrees Celcius Inc.', points:[
