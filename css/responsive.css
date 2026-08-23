@@ -1,9 +1,145 @@
-@media (max-width: 768px){
-  .cursor-dot, .cursor-glow{ display:none; }
-  body{ cursor:auto; }
+/* ==========================================================================
+   Carlo Tano Portfolio — Responsive Stylesheet
+   ==========================================================================
+   Single, consolidated source of truth for every breakpoint-specific
+   override in the site. Desktop (≥1024px) styling comes entirely from
+   style.css / animations.css / mascot.css / the Tailwind utility classes
+   already in index.html and is NOT touched here — every rule below is
+   wrapped in a max-width (or feature) query so the existing desktop
+   design is preserved exactly as-is.
+
+   Sections:
+     1. Global overflow / media safety net
+     2. Pointer & input-type aware rules (touch targets, custom cursor)
+     3. Tablet, 768–1023px  (navbar overflow fix, contact 2-col)
+     4. Large phone / small tablet, ≤767px (grid gaps, spacing)
+     5. Phones, ≤640px (hero image, AI input zoom fix)
+     6. Small phones, ≤480px (AI widget position, card padding)
+     7. Very small phones, ≤380px (typography, full-width CTAs)
+     8. Short / landscape viewports (height-based, not width-based)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------
+   1. Global overflow / media safety net
+   -------------------------------------------------------------------- */
+html { overflow-x: hidden; }
+img, svg, video { max-width: 100%; height: auto; }
+input, textarea, select, button { max-width: 100%; }
+
+/* --------------------------------------------------------------------
+   2. Pointer & input-type aware rules
+   -------------------------------------------------------------------- */
+
+/* The custom cursor only makes sense with a fine pointer that can
+   hover. This covers touch tablets/phones by capability rather than
+   a guessed width, and keeps a width fallback for devices that
+   misreport pointer/hover support. */
+@media (hover: none), (pointer: coarse), (max-width: 1024px) {
+  .cursor-dot, .cursor-glow { display: none; }
+  body { cursor: auto; }
 }
 
-@media (max-width: 480px){
-  .ai-chat-window{ right:12px; bottom:160px; }
-  .ai-toggle-btn{ right:16px; bottom:88px; }
+/* Bump controls that are comfortably clickable with a mouse (32–38px)
+   but fall under the ~44px touch-target guideline, without resizing
+   them for mouse/desktop users. */
+@media (pointer: coarse) {
+  .ai-icon-btn { width: 40px; height: 40px; font-size: 15px; }
+  .ai-send-btn, .ai-mic-btn { width: 44px; height: 44px; }
+  #mobileBtn { padding: 10px; margin: -10px; }
+  #home a[aria-label], footer a[aria-label] {
+    display: inline-flex; padding: 8px; margin: -8px;
+  }
+}
+
+/* --------------------------------------------------------------------
+   3. Tablet, 768–1023px
+   -------------------------------------------------------------------- */
+
+/* The full horizontal nav (logo + 6 links + theme switch + resume
+   button) needs roughly 780–800px of clear width, but a tablet
+   viewport in this range only gives ~700–950px once section padding
+   is subtracted — the menu wraps/overflows. Force the same hamburger
+   pattern already used below 768px instead of the crowded inline menu. */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  #navbar nav > ul { display: none; }
+  #mobileBtn { display: inline-block; }
+  #mobileMenu.flex { display: flex; }
+
+  /* Tablets have enough width to keep contact info and the form
+     side-by-side instead of stacking into one narrow column. */
+  #contact > div.grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* --------------------------------------------------------------------
+   4. Large phone / small tablet, ≤767px
+   -------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  /* Two-column hero/about/contact grids stack into one column here;
+     the 4rem desktop gap is excessive once nothing sits side-by-side. */
+  #home .grid.gap-16,
+  #about .grid.gap-16,
+  #contact .grid.gap-16 { gap: 2.5rem; }
+
+  #projectsGrid, #servicesGrid { gap: 1.5rem; }
+}
+
+/* --------------------------------------------------------------------
+   5. Phones, ≤640px
+   -------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  /* Fixed-height hero image is the classic responsive-image bug —
+     scale it down instead of forcing the same 420px on every phone. */
+  #profilePhoto { height: 360px; }
+
+  /* iOS Safari auto-zooms the page when focusing any text input under
+     16px; the chat textarea is intentionally 13.5px for desktop. */
+  .ai-input-row textarea { font-size: 16px; }
+}
+
+/* --------------------------------------------------------------------
+   6. Small phones, ≤480px
+   -------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  #profilePhoto { height: 320px; }
+  #projectsGrid .h-48 { height: 11rem; }
+
+  #about .tilt-card, #skillsGrid .tilt-card { padding: 1.25rem; }
+
+  /* Let the chat window use the full width (minus a small margin)
+     instead of a fixed max-width, and keep it clear of the toggle. */
+  .ai-chat-window {
+    left: 12px; right: 12px; width: auto;
+    bottom: 158px;
+    height: min(68vh, calc(100vh - 190px));
+  }
+  .ai-toggle-btn { right: 16px; bottom: 88px; }
+}
+
+/* --------------------------------------------------------------------
+   7. Very small phones, ≤380px
+   -------------------------------------------------------------------- */
+@media (max-width: 380px) {
+  #home h1 { font-size: 2.5rem; }
+  #home h2 { font-size: 1.15rem; }
+
+  /* Fixed 288px portrait card can exceed the available column width
+     (viewport − 48px padding) on the narrowest devices; cap it. */
+  .portrait-card { width: 100%; max-width: 260px; }
+
+  /* Full-width, stacked hero CTAs are easier to tap than two
+     side-by-side pill buttons squeezed onto a ~300px-wide row. */
+  #home .ripple-btn { flex: 1 1 100%; text-align: center; }
+}
+
+/* --------------------------------------------------------------------
+   8. Short / landscape viewports (height-based, not width-based, so
+      it correctly targets rotated phones regardless of reported width)
+   -------------------------------------------------------------------- */
+@media (max-height: 500px) and (orientation: landscape) {
+  #home { min-height: auto; padding-top: 5.5rem; padding-bottom: 2rem; }
+  #profilePhoto { height: 220px; }
+
+  .ai-chat-window { bottom: 96px; height: min(72vh, calc(100vh - 120px)); }
+  .ai-toggle-btn { bottom: 20px; width: 52px; height: 52px; font-size: 22px; }
+  #backToTop { bottom: 20px; }
 }
