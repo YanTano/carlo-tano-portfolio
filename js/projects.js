@@ -193,7 +193,7 @@ experience.forEach((job, i) => {
   item.setAttribute('data-aos', i % 2 === 0 ? 'fade-right' : 'fade-left');
   item.innerHTML = `
     <div class="absolute left-4 md:left-1/2 top-1 w-3.5 h-3.5 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 md:-translate-x-1/2 ring-4 ring-void"></div>
-    <div class="md:w-1/2 ${i % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}">
+    <div class="min-w-0 md:w-1/2 ${i % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}">
       <span class="text-xs text-cyan-400 font-semibold tracking-wide">${job.date}</span>
 
       <div class="glass glow-border rounded-2xl p-6 mt-3 text-left">
