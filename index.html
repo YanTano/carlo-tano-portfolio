@@ -399,18 +399,18 @@
   <i class="fa-solid fa-arrow-up"></i>
 </button>
 
-<!-- ============ CARLO AI — Chat Widget ============ -->
+<!-- ============ CARLO Assistant — Chat Widget ============ -->
 <div id="aiWidget" data-ai-theme="dark">
 
   <!-- Floating toggle button -->
-  <button id="aiToggleBtn" class="ai-toggle-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="aiChatWindow" aria-label="Open Carlo AI assistant">
+  <button id="aiToggleBtn" class="ai-toggle-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="aiChatWindow" aria-label="Open Carlo Assistant">
     <span class="ai-ring"></span>
     <i class="fa-solid fa-robot"></i>
     <span class="ai-badge" id="aiBadge"></span>
   </button>
 
   <!-- Chat window -->
-  <div id="aiChatWindow" class="ai-chat-window" role="dialog" aria-modal="false" aria-label="Carlo AI chat" data-lenis-prevent>
+  <div id="aiChatWindow" class="ai-chat-window" role="dialog" aria-modal="false" aria-label="Carlo Assistant chat" data-lenis-prevent>
     <div class="ai-header">
       <div class="ai-p" style="left:20%; animation-delay:0s;"></div>
       <div class="ai-p" style="left:55%; animation-delay:2s;"></div>
@@ -418,7 +418,7 @@
 
       <div class="ai-orb" id="aiOrb"><i class="fa-solid fa-bolt"></i></div>
       <div class="ai-header-info">
-        <h3>🤖 Carlo AI</h3>
+        <h3>🤖 Carlo Assistant</h3>
         <p><span class="ai-online-dot"></span> Ask me anything about Carlo</p>
       </div>
       <div class="ai-header-actions">
@@ -443,7 +443,7 @@
 
     <form class="ai-input-row" id="aiForm">
       <button type="button" class="ai-mic-btn" id="aiMicBtn" title="Voice input" aria-label="Voice input"><i class="fa-solid fa-microphone"></i></button>
-      <textarea id="aiInput" rows="1" placeholder="Ask about Carlo's skills, projects, experience…" aria-label="Message Carlo AI"></textarea>
+      <textarea id="aiInput" rows="1" placeholder="Ask about Carlo's skills, projects, experience…" aria-label="Message Carlo Assistant"></textarea>
       <button type="submit" class="ai-send-btn" id="aiSendBtn" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button>
     </form>
   </div>
