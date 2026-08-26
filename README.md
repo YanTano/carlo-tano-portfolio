@@ -8,7 +8,7 @@ A modern, interactive, and responsive personal portfolio website showcasing my s
 
 ## 📸 Preview
 
-![Portfolio Screenshot](images/preview.png)
+![Portfolio Preview](https://i.gyazo.com/e8c4416796419c6a55a3dfaf21114a93.png)
 
 ## ✨ Features
 
